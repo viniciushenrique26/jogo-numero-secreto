@@ -21,7 +21,7 @@ function exibeChuteNaTela(chute) {
   `
 } 
 function gameOver(chute) { 
-  if (chute === 'quero mais jogar não') { 
+  if (chute === 'quero mais jogar não' || 'Quero mais jogar não') { 
 
     elementoChute.innerHTML = `
     <h2>Fim de Jogo!</h2> 
