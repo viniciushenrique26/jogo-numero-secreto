@@ -11,7 +11,8 @@ recognition.addEventListener('result', onSpeak)
 function onSpeak (e) { 
   chute = e.results[0][0].transcript
   exibeChuteNaTela(chute) 
-  verificaSeOChutePossuiUmValorValido(chute);
+  verificaSeOChutePossuiUmValorValido(chute)
+  gameOver(chute)
 } 
 function exibeChuteNaTela(chute) {
   elementoChute.innerHTML = `
@@ -19,5 +20,20 @@ function exibeChuteNaTela(chute) {
     <span class="box">${chute}</span>
   `
 } 
+function gameOver(chute) { 
+  if (chute === 'quero mais jogar não') { 
 
-recognition.addEventListener('end', () => recognition.start()) 
+    elementoChute.innerHTML = `
+    <h2>Fim de Jogo!</h2> 
+    <h3>Pressione o botão para jogar novamente</h3>
+    <button id="jogar-novamente" class="btn-jogar">Jogar Novamente</button>
+    ` 
+    document.body.style.backgroundColor = "black";  
+    document.body.style.color = "white";
+  }  
+    
+}  
+
+
+
+recognition.addEventListener('end', () => recognition.start())  
